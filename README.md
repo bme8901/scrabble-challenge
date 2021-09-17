@@ -28,30 +28,30 @@ To record the results of games and associate with players, we'd need two entitie
 Users could continue to modify the browser-side board until the board is full or the game deemed complete. Between each turn the board could be scored using the function from the first exercise. In this case, points could be aggregated by User and then increment their score until the end of the game. The results would be stored as entries in a
 results or score column on the Game entity. Example table descriptions are included below:
 
-+------+---------------+--+--+--+  
-| User | | | | |
++------+---------------+--+--+--+           
+| User |               |  |  |  |
 +------+---------------+--+--+--+
-| PK | id | | | |
+| PK   | id            |  |  |  |
 +------+---------------+--+--+--+
-| | email | | | |
+|      | email         |  |  |  |
 +------+---------------+--+--+--+
-| | password_hash | | | |
+|      | password_hash |  |  |  |
 +------+---------------+--+--+--+
-| | ... | | | |
+|      | ...           |  |  |  |
 +------+---------------+--+--+--+
 
 +------+----------+--+--+--+
-| Game | | | | |
+| Game |          |  |  |  |
 +------+----------+--+--+--+
-| PK | id | | | |
+| PK   | id       |  |  |  |
 +------+----------+--+--+--+
-| FK | user_id1 | | | |
+| FK   | user_id1 |  |  |  |
 +------+----------+--+--+--+
-| FK | user_id2 | | | |
+| FK   | user_id2 |  |  |  |
 +------+----------+--+--+--+
-| | results | | | |
+|      | results  |  |  |  |
 +------+----------+--+--+--+
-| | ... | | | |
+|      | ...      |  |  |  |
 +------+----------+--+--+--+
 
 For persisting user actions, results, and other queries via the API, we could use several different arrangements on the server-
