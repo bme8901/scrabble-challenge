@@ -1,4 +1,4 @@
-# Exscientia Coding Challenge
+# Scrabble Coding Challenge
 
 Scrabble solutions for board problem as well as design/architecure for (both) solver & website.
 
