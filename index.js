@@ -1,5 +1,6 @@
 const axios = require("axios");
 
+// URLs from .pdf
 const SCRABBLE_BOARD_URL = `https://gist.githubusercontent.com/jgingerexscientia/191dd3d6a575c130af6d006971467f3f/raw/f7836f1fa4c7c45de10b49bdb527adf52ec7d7e2/scrabble_board.json`;
 const YOUR_BOARD_URL = `https://gist.githubusercontent.com/jgingerexscientia/2ed4ec09eb5ec49b897eec9c8fb5e4ba/raw/74e763cabd20e8a4d7c6b494c88196cecb6c31d4/your_board.json`;
 const BEFORE_AFTER_WORD_ADDED_URL = `https://gist.githubusercontent.com/jgingerexscientia/fbada88cfd407fe2a0d4ee87371ffd32/raw/e81d339e6119d794e316e959e945421b747d97c5/board_after_word_added.json`;
@@ -35,20 +36,25 @@ const findBoardScore = (
         switch (scrabble_board[i][j]) {
           case "DL":
             multiplier = 2;
+            break;
           case "TL":
             multiplier = 3;
+            break;
           case "DW":
             multiplier = 1;
             score_multiplier.push(2);
+            break;
           case "TW":
             multiplier = 1;
             score_multiplier.push(3);
+            break;
         }
         word += newChar;
         score += multiplier * letter_scores[newChar];
       }
     }
   }
+  score *= score_multiplier.reduce((o, a) => o * a, 1);
   const reversedWord = word.split("").reverse().join("");
   if (words.includes(word) || words.includes(reversedWord)) {
     return score;
@@ -94,7 +100,6 @@ const runScrabble = async () => {
           scrabble_board.data,
           scrabble_words.data.split(".txt")[2].split("\r\n")
         );
-        console.clear();
         console.log(
           "The score for this board with tiles ",
           your_tiles,
