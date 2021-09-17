@@ -28,31 +28,9 @@ To record the results of games and associate with players, we'd need two entitie
 Users could continue to modify the browser-side board until the board is full or the game deemed complete. Between each turn the board could be scored using the function from the first exercise. In this case, points could be aggregated by User and then increment their score until the end of the game. The results would be stored as entries in a
 results or score column on the Game entity. Example table descriptions are included below:
 
-+------+---------------+--+--+--+  
-| User | | | | |
-+------+---------------+--+--+--+
-| PK | id | | | |
-+------+---------------+--+--+--+
-| | email | | | |
-+------+---------------+--+--+--+
-| | password_hash | | | |
-+------+---------------+--+--+--+
-| | ... | | | |
-+------+---------------+--+--+--+
+![Alt text](images/ss1.png?raw=true "Title")
 
-+------+----------+--+--+--+
-| Game | | | | |
-+------+----------+--+--+--+
-| PK | id | | | |
-+------+----------+--+--+--+
-| FK | user_id1 | | | |
-+------+----------+--+--+--+
-| FK | user_id2 | | | |
-+------+----------+--+--+--+
-| | results | | | |
-+------+----------+--+--+--+
-| | ... | | | |
-+------+----------+--+--+--+
+![Alt text](images/ss2.png?raw=true "Title")
 
 For persisting user actions, results, and other queries via the API, we could use several different arrangements on the server-
 side, including: (Note that I've used AWS products, but could be deployed on Azure, DO, etc.)
